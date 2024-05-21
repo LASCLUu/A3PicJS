@@ -1,38 +1,51 @@
 body {
+  /* Configuração do corpo da página */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
   width: 100%;
   height: 100%;
-  /*Addyourbackgroundpatternhere*/
-  background: rgba(29, 31, 32, 0.904)
-    radial-gradient(rgba(255, 255, 255, 0.712) 10%, transparent 1%);
-  background-size: 11px 11px;
-}
-
-div {
-  background-color: gainsboro;
-  border-radius: 18px;
-  -webkit-border-radius: 18px;
-  -moz-border-radius: 18px;
-  -ms-border-radius: 18px;
-  -o-border-radius: 18px;
-  size-adjust: auto;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    30deg,
+    #1F618D,
+    #2471A3  20px,
+    #154360 20px,
+    #154360 40px
+  );
+  align-items: auto;
 }
 
 canvas {
+  /* Configuração do frame de amostragem da imagem */
   border: 4px solid black;
   background-color: whitesmoke;
 }
 
 button {
-  border: 2.5px solid black;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  /* Configuração dos botões (exceto de upload de imagem) */
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #D4AC0D;
+  cursor: pointer;
+  border: 1px solid #D4AC0D;
+  transition: all 0.3s;
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
 input {
+  /* Configuração do botão de upload de imagem */
   border: 1px;
   border-style: solid;
   border-radius: 20px;
@@ -40,4 +53,13 @@ input {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #D4AC0D;
+  cursor: pointer;
+  border: 1px solid #D4AC0D;
+  transition: all 0.3s;
 }
+

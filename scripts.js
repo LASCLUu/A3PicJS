@@ -1,6 +1,6 @@
-const upload = document.getElementById('upload');
+const upload = document.getElementById('upload-img');
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d')
 let originalImageData;
 
 upload.addEventListener('change', (event) => {
@@ -126,7 +126,6 @@ const pixels = document.getElementById("pixelsMover").value
 function moveUp() {
     const imageData = ctx.getImageData(0, pixels, canvas.width, canvas.height - 1);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    canvas.height++
     ctx.putImageData(imageData, 0, 0);
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
 }
@@ -196,18 +195,27 @@ function flipVertical() {
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
 
-function blackNWhite(adjustBrightness){
-    const factor = (259 * (adjustment + 255)) / (255 * (259 - adjustment));
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
+let isBlackAndWhite = false;
 
-    for (let i = 0; i < data.length; i += 4) {
-        data[i] = factor * (data[i] - 128) + 128; // Red
-        data[i + 1] = factor * (data[i + 1] - 128) + 128; // Green
-        data[i + 2] = factor * (data[i + 2] - 128) + 128; // Blue
+function blackNWhite(){
+    if (!isBlackAndWhite) {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        for (let i = 0; i < data.length; i += 4) {
+            const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            data[i] = avg;        // Red
+            data[i + 1] = avg;    // Green
+            data[i + 2] = avg;    // Blue
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        isBlackAndWhite = true;
+    } else {
+        ctx.putImageData(originalImageData, 0, 0);
+        isBlackAndWhite = false;
     }
 
-    ctx.putImageData(imageData, 0, 0);
 }
 
 function invertColors() {
@@ -315,5 +323,22 @@ function adjustSaturation(adjustment) {
     ctx.putImageData(imageData, 0, 0);
 }
 
-function save(){}
+function save(){
+        // Converte o conteúdo do canvas para uma URL de dados base64
+        const dataURL = canvas.toDataURL('image/png');
+        // Cria um link temporário
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = "img.png";
+        // Dispara um clique no link para baixar a imagem
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+}
+
+function resetImg(){
+    canvas.width = img.width
+    canvas.height = img.height
+    ctx.drawImage(img, 0, 0)
+}
 

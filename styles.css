@@ -1,3 +1,75 @@
+body {
+  /* Configuração do corpo da página */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  --color: #2471A3;
+  background-color: #154360;
+  background-image: linear-gradient(0deg,inn
+      transparent 24%, var(--color) 25%,
+      var(--color) 26%, transparent 27%,transparent 74%,
+      var(--color) 75%, var(--color) 76%,
+      transparent 77%,transparent
+      ),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+}
+
 canvas {
-    border: 1px solid black;
+  /* Configuração do frame de amostragem da imagem */
+  border: 4px solid #D4AC0D;
+  background-color: whitesmoke;
+}
+
+button {
+  /* Configuração dos botões (exceto de upload de imagem) */
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #D4AC0D;
+  cursor: pointer;
+  border: 1px solid #D4AC0D;
+  transition: all 0.3s;
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+input {
+  /*Configuraçãodobotãodeuploaddeimagem*/
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #D4AC0D;
+  cursor: pointer;
+  border: 1px solid #D4AC0D;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+#botoes{
+  display: flex;
+  flex-direction: column;
+}
+
+#linha1, #linha2, #linha3{
+  display: flex;
+  flex-direction: row;
 }

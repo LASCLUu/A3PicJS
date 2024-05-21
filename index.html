@@ -9,81 +9,98 @@
   </head>
 
   <body>
-    <br>
+    <header>
+      <input type="file" id="upload-img" accept="image/*" />
+      <button onclick="save()">Salvar</button>
+    </header>
     <div>
       <!-- Parte de amostragem da imagem com as opções "carregar imagem" e "salvar" -->
-      <input type="file" id="upload-img" accept="image/*" />
-      <br>
-      <br>
       <canvas id="canvas"></canvas>
-      <br>
-      <br>
-      <button onclick="save()">Salvar</button>
     </div>
-    <br>
-    <div> <!-- Botão de 90° -->
-      <button id="rotate-90" onclick="rotate90()">Rotacionar 90°</button>
-    </div>
-    <br>
-    <div> <!-- Botão de 180° -->
-      <button id="rotate-180" onclick="rotate180()">Rotacionar 180°</button>
-    </div>
-    <br>
-    <div> <!-- Redimensionamento da Imagem -->
-      <button id="resize" onclick="resizeImg()">Redimensionar</button>
-      <br>
-      <br>
-      <input type="number" id="width" placeholder="Largura" />
-      <input type="number" id="height" placeholder="Altura" />
-      <input type="number" id="pixelsMover" placeholder="Pixels a mover" />
-    </div>
-    <br>
-    <div> <!-- Mover imagem pra cima -->
-      <button class="mover" onclick="moveUp()">Mover para cima</button>
-    </div>
-    <br>
-    <div> <!-- Mover imagem pra baixo -->
-      <button class="mover" onclick="moveDown()">Mover para baixo</button>
-    </div>
-    <br>
-    <div> <!-- Mover imagem para a esquerda -->
-      <button class="mover" onclick="moveLeft()">Mover para esquerda</button>
-    </div>
-    <br>
-    <div> <!-- Mover imagem para a direita -->
-      <button class="mover" onclick="moveRight()">Mover para direita</button>
-    </div>
-    <br>
-    <div> <!-- Inverter imagem na horizontal -->
-      <button id="invert-horizontal" onclick="flipHorizontal()">
-        Inverter Horizontalmente
-      </button>
-    </div>
-    <br>
-    <div> <!-- Mover imagem na vertical -->
-      <button id="invert-vertical" onclick="flipVertical()">
-        Inverter Verticalmente
-      </button>
-    </div>
-    <br>
-    <div> <!-- Botão B & W -->
-      <button id="grayscale" onclick="blackNWhite()">Tons de Cinza</button>
-    </div>
-    <br>
-    <div> <!-- Inversão de cores -->
-      <button id="invert" onclick="invertColors()">Inverter Cores</button>
-      <label for="brilho">Brilho:</label>
-      <input type="number" name="brilho" step="25" id="brilho" value="0" />
-      <label for="">Contraste:</label>
-      <input
-        type="number"
-        name="contraste"
-        step="25"
-        id="contraste"
-        value="0"
-      />
-      <label for="">Saturação:</label>
-      <input type="number" name="saturacao" step="1" id="saturacao" value="0" />
+    <div id="botoes">
+      <div id="linha1">
+        <div>
+          <!-- Botão de 90° -->
+          <button id="rotate-90" onclick="rotate90()">Rotacionar 90°</button>
+        </div>
+        <div>
+          <!-- Botão de 180° -->
+          <button id="rotate-180" onclick="rotate180()">Rotacionar 180°</button>
+        </div>
+        <div>
+          <!-- Redimensionamento da Imagem -->
+          <button id="resize" onclick="resizeImg()">Redimensionar</button>
+
+          <input type="number" id="width" placeholder="Largura" />
+          <input type="number" id="height" placeholder="Altura" />
+          <input type="number" id="pixelsMover" placeholder="Pixels a mover" />
+        </div>
+      </div>
+      <div>
+        <div id="linha2">
+          <!-- Mover imagem pra cima -->
+          <button class="mover" onclick="moveUp()">Mover para cima</button>
+        </div>
+        <div>
+          <!-- Mover imagem pra baixo -->
+          <button class="mover" onclick="moveDown()">Mover para baixo</button>
+        </div>
+        <div>
+          <!-- Mover imagem para a esquerda -->
+          <button class="mover" onclick="moveLeft()">
+            Mover para esquerda
+          </button>
+        </div>
+        <div>
+          <!-- Mover imagem para a direita -->
+          <button class="mover" onclick="moveRight()">
+            Mover para direita
+          </button>
+        </div>
+      </div>
+      <div>
+        <div id="linha3">
+          <!-- Inverter imagem na horizontal -->
+          <button id="invert-horizontal" onclick="flipHorizontal()">
+            Inverter Horizontalmente
+          </button>
+        </div>
+        <div>
+          <!-- Mover imagem na vertical -->
+          <button id="invert-vertical" onclick="flipVertical()">
+            Inverter Verticalmente
+          </button>
+        </div>
+        <div>
+          <!-- Botão B & W -->
+          <button id="grayscale" onclick="blackNWhite()">Tons de Cinza</button>
+        </div>
+        <div>
+          <!-- Inversão de cores -->
+          <button id="invert" onclick="invertColors()">Inverter Cores</button>
+          <label for="brilho">Brilho:</label>
+          <input type="number" name="brilho" step="25" id="brilho" value="0" />
+          <label for="">Contraste:</label>
+          <input
+            type="number"
+            name="contraste"
+            step="25"
+            id="contraste"
+            value="0"
+          />
+          <label for="">Saturação:</label>
+          <input
+            type="number"
+            name="saturacao"
+            step="1"
+            id="saturacao"
+            value="0"
+          />
+          <div>
+            <button id="reset" onclick="resetImg()">Restaurar imagem original</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="scripts.js"></script>
   </body>

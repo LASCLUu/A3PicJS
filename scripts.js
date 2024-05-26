@@ -329,6 +329,9 @@ function adjustSaturation(adjustment) {
     ctx.putImageData(imageData, 0, 0);
 }
 
+const saveBtn = document.getElementById("save");
+saveBtn.addEventListener("click", save);
+
 function save(){
         // Converte o conteúdo do canvas para uma URL de dados base64
         const dataURL = canvas.toDataURL('image/png');

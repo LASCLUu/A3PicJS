@@ -1,14 +1,17 @@
 body {
   /* Configuração do corpo da página */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
-  font-weight: 200;
-  width: 100%;
-  height: 100%;
+  --color: #2471A3;
   background-color: #154360;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
-  background-size: 30px 30px;
-  background-position: -5px -5px
+  background-image: linear-gradient(0deg,inn
+      transparent 24%, var(--color) 25%,
+      var(--color) 26%, transparent 27%,transparent 74%,
+      var(--color) 75%, var(--color) 76%,
+      transparent 77%,transparent
+      ),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
 }
 
 canvas {
@@ -33,22 +36,19 @@ button {
   cursor: pointer;
   border: 1px solid #D4AC0D;
   transition: all 0.3s;
-  margin: 1rem;
-
-  button:active {
-    color: #666;
-    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-  }
-
-}
 
 button:active {
   color: #666;
   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
+input[type="file"]:hover{
+  background-color: #cb4a34;
+  box-shadow: 0 0 1rem #cb4a34
+}
+
 input {
-  /*Configuração do botão de upload de imagem*/
+  /*Configuraçãodobotãodeuploaddeimagem*/
   border: 1px;
   border-style: solid;
   border-radius: 20px;
@@ -68,23 +68,13 @@ input {
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
-  display: inline-block;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 0rem;
-  margin: 1rem;
+}
+#botoes{
+  display: flex;
+  flex-direction: column;
 }
 
-#mostra-img {
-  list-style: none;
-  margin: 1rem;
-  display: inline-block;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: -1rem;
-  width: 100px;
-}
-
-#botoes {
-  padding-bottom: 3rem;
+#linha1, #linha2, #linha3{
+  display: flex;
+  flex-direction: row;
 }

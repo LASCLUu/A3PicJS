@@ -1,26 +1,56 @@
-const upload = document.getElementById('upload-img');
+const upload = document.getElementById('upload');
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d')
-let originalImageData;
+const ctx = canvas.getContext('2d');
 
 upload.addEventListener('change', (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
-
+    
     reader.onload = (e) => {
         img = new Image();
         img.onload = () => {
             canvas.width = img.width;
             canvas.height = img.height;
             drawImage();
+            xInput.value = img.width;
+            yInput.value = img.height;
         };
         img.src = e.target.result;
     };
     reader.readAsDataURL(file);
 });
+let originalImageData;
+
+let isDragging = false;
+let startX, startY, offsetX = 0, offsetY = 0;
+
+canvas.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.offsetX - offsetX;
+    startY = e.offsetY - offsetY;
+    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        offsetX = e.offsetX - startX;
+        offsetY = e.offsetY - startY;
+        drawImage();
+    }
+});
+
+canvas.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+canvas.addEventListener('mouseout', () => {
+    isDragging = false;
+    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+});
 
 function drawImage() {
-    ctx.drawImage(img, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.putImageData(originalImageData, offsetX, offsetY);
 }
 
 function rotate90() {
@@ -82,11 +112,17 @@ function rotate180() {
     originalImageData = ctx.getImageData(0, 0, width, height);
 }
 
+let xInput = document.getElementById("x");
+let yInput = document.getElementById("y");
+let resizeBtn = document.getElementById("resizeBtn")
+
+resizeBtn.addEventListener("click", resizeImg)
+
 function resizeImg() {
     const originalWidth = canvas.width;
     const originalHeight = canvas.height;
-    const scaledWidth = document.getElementById("width").value;
-    const scaledHeight = document.getElementById("height").value;
+    const scaledWidth = xInput.value;
+    const scaledHeight = yInput.value;
 
     // Obter os dados da imagem original
     const imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
@@ -119,36 +155,6 @@ function resizeImg() {
     // Desenhar a nova imagem redimensionada no canvas
     ctx.putImageData(newImageData, 0, 0);
     originalImageData = ctx.getImageData(0, 0, scaledWidth, scaledHeight);
-}
-
-const pixels = document.getElementById("pixelsMover").value
-
-function moveUp() {
-    const imageData = ctx.getImageData(0, pixels, canvas.width, canvas.height - 1);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(imageData, 0, 0);
-    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
-}
-
-function moveDown() {
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(imageData, 0, pixels);
-    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
-}
-
-function moveLeft() {
-    const imageData = ctx.getImageData(pixels, 0, canvas.width - 1, canvas.height);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(imageData, 0, 0);
-    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
-}
-
-function moveRight() {
-    const imageData = ctx.getImageData(0, 0, canvas.width - 1, canvas.height);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(imageData, pixels, 0);
-    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height - 1);
 }
 
 function flipHorizontal() {
@@ -219,9 +225,9 @@ function blackNWhite(){
 }
 
 function invertColors() {
-    brightnessInput.value = 0;
-    contrastInput.value = 0;
-    saturationInput.value = 0;
+    // brightnessInput.value = 0;
+    // contrastInput.value = 0;
+    // saturationInput.value = 0;
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;
 
@@ -236,9 +242,9 @@ function invertColors() {
     originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
 
-const brightnessInput = document.getElementById('brilho');
-const contrastInput = document.getElementById('contraste');
-const saturationInput = document.getElementById('saturacao');
+const brightnessInput = document.getElementById('brightness');
+const contrastInput = document.getElementById('contrast');
+const saturationInput = document.getElementById('saturation');
 
 // Carregar a imagem e salvar seu estado original
 upload.addEventListener('change', (event) => {
@@ -323,6 +329,9 @@ function adjustSaturation(adjustment) {
     ctx.putImageData(imageData, 0, 0);
 }
 
+const saveBtn = document.getElementById("save");
+saveBtn.addEventListener("click", save);
+
 function save(){
         // Converte o conteúdo do canvas para uma URL de dados base64
         const dataURL = canvas.toDataURL('image/png');
@@ -337,8 +346,30 @@ function save(){
 }
 
 function resetImg(){
-    canvas.width = img.width
-    canvas.height = img.height
-    ctx.drawImage(img, 0, 0)
+    canvas.width = img.width;
+    canvas.height = img.height;
+    contrastInput.value = 0
+    brightnessInput.value = 0
+    saturationInput.value = 0
+    ctx.drawImage(img, 0, 0);
+    xInput.value = img.width;
+    yInput.value = img.height;
+    originalImageData = ctx.getImageData(0, 0, img.width, img.height)
 }
+
+const restoreBtn = document.getElementById("restore");
+restoreBtn.addEventListener("click", () => resetImg())
+const rotate90Btn = document.getElementById("rotate90");
+rotate90Btn.addEventListener("click", () => rotate90())
+const rotate180Btn = document.getElementById("rotate180");
+rotate180Btn.addEventListener("click", () =>rotate180())
+const flipHBtn = document.getElementById("flipH");
+flipHBtn.addEventListener("click", () => flipHorizontal())
+const flipVBtn = document.getElementById("flipV");
+flipVBtn.addEventListener("click", () => flipVertical())
+const blackNwhiteBtn = document.getElementById("bNw");
+blackNwhiteBtn.addEventListener("click", () => blackNWhite())
+const invertColorsBtn = document.getElementById("invertColors");
+invertColorsBtn.addEventListener("click", () => invertColors())
+
 

@@ -1,9 +1,15 @@
+@font-face {
+  font-family: 'CustomFont';
+    /* Name your font family */
+    src: url('Jaro-Regular-VariableFont_opsz.ttf');
+}
+
 body {
   /* cor usada inicialmente #292025 */
   margin: 0;
   padding: 0;
-  background-color: #003135;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  background-color: #030637;
+  font-family: 'CustomFont';
 }
 
 h1 {
@@ -11,8 +17,8 @@ h1 {
   margin: 2% auto 2% auto;
   width: auto;
   font-size: 2.5rem;
-  color: #0fa4a0;
-  text-shadow: 0 0 1rem#cb4a34, 0 0 0.3rem #0fa4a0;
+  color: #910A67;
+  text-shadow: 0 0 1rem#cb4a34, 0 0 1rem #910a6649;
 }
 
 header {
@@ -20,7 +26,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #024950;
+  background-color: #3C0753;
 }
 
 input[type="file"]::file-selector-button {
@@ -28,11 +34,12 @@ input[type="file"]::file-selector-button {
      color: white; */
   width: 50%;
   padding: 1%;
-  background-color: #964734;
-  border: 1px solid #964734;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1rem;
+  font-family: 'CustomFont';
 }
 
 input[type="file"] {
@@ -42,8 +49,9 @@ input[type="file"] {
 input[type="file"]:hover {
   /* cor usada inicialmente #cb4a34 */
 
-  background-color: #964734;
-  box-shadow: 0 0 1rem #964734
+  background-color: #910A67;
+  box-shadow: 0 0 1rem #910A67;
+  font-family: 'CustomFont';
 }
 
 nav input {
@@ -51,11 +59,12 @@ nav input {
      color: white; */
   margin: 1% 0 1% 1%;
   width: auto;
-  background-color: #964734;
-  border: 1px solid #964734;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1rem;
+  font-family: 'CustomFont';
 }
 
 nav button {
@@ -71,8 +80,8 @@ label {
   /* cor usada inicialmente color: #880808;
   text-shadow: #cb4a34 ... #880808; */
   font-size: 1.3rem;
-  color: #964734;
-  text-shadow: 0 0 1rem #964734, 0 0 1rem #964734;
+  color: white;
+  text-shadow: 0 0 1rem #910A67, 0 0 1rem #910A67;
   font-weight: bold;
 }
 
@@ -93,12 +102,13 @@ button {
   width: 100%;
   margin: 0 0 5% 0;
   padding: 1%;
-  background-color: #964734;
-  border: 1px solid #964734;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1.2rem;
   transition: 0.3s;
+  font-family: 'CustomFont';
 }
 
 button:hover {

@@ -1,11 +1,10 @@
 @font-face {
   font-family: 'CustomFont';
     /* Name your font family */
-    src: url('Jaro-Regular-VariableFont_opsz.ttf');
+    src: url('MedievalSharp-Regular.ttf');
 }
 
 body {
-  /* cor usada inicialmente #292025 */
   margin: 0;
   padding: 0;
   background-color: #030637;
@@ -13,7 +12,6 @@ body {
 }
 
 h1 {
-  /* cor usada inicialmente #cb4a34 */
   margin: 2% auto 2% auto;
   width: auto;
   font-size: 2.5rem;
@@ -22,7 +20,6 @@ h1 {
 }
 
 header {
-  /* cor usada inicialmente #24040a */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,8 +27,6 @@ header {
 }
 
 input[type="file"]::file-selector-button {
-  /* cor usada inicialmente #7B1818 -> background e border
-     color: white; */
   width: 50%;
   padding: 1%;
   background-color: #910A67;
@@ -55,8 +50,6 @@ input[type="file"]:hover {
 }
 
 nav input {
-  /* cor usada inicialmente #7B1818 -> background e border
-     color: white; */
   margin: 1% 0 1% 1%;
   width: auto;
   background-color: #910A67;
@@ -72,13 +65,10 @@ nav button {
 }
 
 canvas {
-  /* cor usada inicialmente white */
   border: 1px solid white;
 }
 
 label {
-  /* cor usada inicialmente color: #880808;
-  text-shadow: #cb4a34 ... #880808; */
   font-size: 1.3rem;
   color: white;
   text-shadow: 0 0 1rem #910A67, 0 0 1rem #910A67;
@@ -97,8 +87,6 @@ input {
 }
 
 button {
-  /* cor usada inicialmente #7B1818 -> background e border
-     color: white; */
   width: 100%;
   margin: 0 0 5% 0;
   padding: 1%;
@@ -112,7 +100,6 @@ button {
 }
 
 button:hover {
-  /* cor usada inicialmente #cb4a34 */
   background-color: #cb4a34;
   box-shadow: 0 0 1rem #cb4a34;
 }
@@ -124,8 +111,6 @@ button:hover {
 }
 
 .valores input {
-  /* cor usada inicialmente color: white;
-     backgorund-color: #270000; */
   width: 30%;
   margin: 0 0 0 5%;
   background-color: #270000;

@@ -372,4 +372,3 @@ blackNwhiteBtn.addEventListener("click", () => blackNWhite())
 const invertColorsBtn = document.getElementById("invertColors");
 invertColorsBtn.addEventListener("click", () => invertColors())
 
-

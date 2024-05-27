@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="icon" href="logo-foto.png" />
-    <title>FotoForge</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <header>
-      <h1>FotoForge</h1>
-    </header>
-    <nav>
-      <input class="customFileUpload" type="file" id="upload">
-      <button id="save">Salvar Imagem</button>
-    </nav>
-    <section id="geral">
-      <div id="menuLateral">
-        <button id="restore" class="btn">Restaurar</button>
-        <button id="rotate90" class="btn">90º</button>
-        <button id="rotate180" class="btn">180º</button>
-        <!-- <button id="redimensionar" class="btn">Redimensionar</button> -->
-        <button id="flipH" class="btn">Inverter Horizontalmente</button>
-        <button id="flipV" class="btn">Inverter Verticalmente</button>
-        <button id="bNw" class="btn">Tons de Cinza</button>
-        <button id="invertColors" class="btn">Inverter Cores</button>
-        <div id="mods">
-          <div class="valores">
-            <label for="brightness">Brilho: </label>
-            <input name="brightness" id="brightness" type="number" step="5" value="0">
-          </div>
-          <div class="valores">
-            <label for="contrast">Contraste: </label>
-            <input name="contrast" id="contrast" type="number" step="25" value="0">
-          </div>
-          <div class="valores">
-            <label for="saturation">Saturação: </label>
-            <input name="saturation" id="saturation" type="number" value="0">
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="icon" href="anvil.png" />
+  <title>FotoForge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>FotoForge</h1>
+    <img src="anvil.png">
+  </header>
+  <nav>
+    <input class="customFileUpload" type="file" id="upload">
+    <button id="save">Salvar Imagem</button>
+  </nav>
+  <section id="geral">
+    <div id="menuLateral">
+      <button id="restore" class="btn">Restaurar</button>
+      <button id="rotate90" class="btn">90º</button>
+      <button id="rotate180" class="btn">180º</button>
+      <!-- <button id="redimensionar" class="btn">Redimensionar</button> -->
+      <button id="flipH" class="btn">Inverter Horizontalmente</button>
+      <button id="flipV" class="btn">Inverter Verticalmente</button>
+      <button id="bNw" class="btn">Tons de Cinza</button>
+      <button id="invertColors" class="btn">Inverter Cores</button>
+      <div id="mods">
+        <div class="valores">
+          <label for="brightness">Brilho: </label>
+          <input name="brightness" id="brightness" type="number" step="5" value="0">
         </div>
-        <div id="resize">
-          <div class="valores">
-            <label for="x">X:</label>
-            <input name="x" id="x" type="number">
-          </div>
-          <div class="valores">
-            <label for="y">Y:</label>
-            <input name="y" id="y" type="number">
-          </div>
-          <button id="resizeBtn">Redimensionar</button>
+        <div class="valores">
+          <label for="contrast">Contraste: </label>
+          <input name="contrast" id="contrast" type="number" step="25" value="0">
+        </div>
+        <div class="valores">
+          <label for="saturation">Saturação: </label>
+          <input name="saturation" id="saturation" type="number" value="0">
         </div>
       </div>
-      <div id="render">
-        <canvas id="canvas"></canvas>
+      <div id="resize">
+        <div class="valores">
+          <label for="x">X:</label>
+          <input name="x" id="x" type="number">
+        </div>
+        <div class="valores">
+          <label for="y">Y:</label>
+          <input name="y" id="y" type="number">
+        </div>
+        <button id="resizeBtn">Redimensionar</button>
       </div>
-    </section>
-    <script src="scripts.js"></script>
-  </body>
+    </div>
+    <div id="render">
+      <canvas id="canvas"></canvas>
+    </div>
+  </section>
+  <script src="scripts.js"></script>
+</body>
+
 </html>

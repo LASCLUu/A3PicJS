@@ -1,103 +1,116 @@
+@font-face {
+  font-family: 'CustomFont';
+    /* Name your font family */
+    src: url('MedievalSharp-Regular.ttf');
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #292025;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  background-color: #030637;
+  font-family: 'CustomFont';
 }
 
-h1{
+h1 {
   margin: 2% auto 2% auto;
   width: auto;
   font-size: 2.5rem;
-  color:#cb4a34;
-  text-shadow: 0 0 1rem#cb4a34, 0 0 0.3rem #cb4a34;
+  color: #910A67;
+  text-shadow: 0 0 1rem#cb4a34, 0 0 1rem #910a6649;
 }
 
-header{
+header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #24040a;
+  background-color: #3C0753;
 }
 
-input[type="file"]::file-selector-button{
+input[type="file"]::file-selector-button {
   width: 50%;
   padding: 1%;
-  background-color: #7B1818;
-  border: 1px solid #7B1818;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1rem;
+  font-family: 'CustomFont';
 }
-input[type="file"]{
+
+input[type="file"] {
   transition: 0.3s;
 }
 
-input[type="file"]:hover{
-  background-color: #cb4a34;
-  box-shadow: 0 0 1rem #cb4a34
+input[type="file"]:hover {
+  /* cor usada inicialmente #cb4a34 */
+
+  background-color: #910A67;
+  box-shadow: 0 0 1rem #910A67;
+  font-family: 'CustomFont';
 }
 
-nav input{
+nav input {
   margin: 1% 0 1% 1%;
   width: auto;
-  background-color: #7B1818;
-  border: 1px solid #7B1818;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1rem;
+  font-family: 'CustomFont';
 }
 
-nav button{
+nav button {
   font-size: 1rem;
 }
 
-canvas{
+canvas {
   border: 1px solid white;
 }
 
-label{
+label {
   font-size: 1.3rem;
-  color: #880808;
-  text-shadow: 0 0 1rem #cb4a34, 0 0 1rem #880808;
+  color: white;
+  text-shadow: 0 0 1rem #910A67, 0 0 1rem #910A67;
   font-weight: bold;
 }
 
-section{
+section {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-input{
+input {
   width: 90%;
   margin: 0 0 5% 0;
 }
 
-button{
+button {
   width: 100%;
   margin: 0 0 5% 0;
   padding: 1%;
-  background-color: #7B1818;
-  border: 1px solid #7B1818;
+  background-color: #910A67;
+  border: 1px solid #910A67;
   border-radius: 10px;
   color: white;
   font-size: 1.2rem;
   transition: 0.3s;
+  font-family: 'CustomFont';
 }
 
-button:hover{
+button:hover {
   background-color: #cb4a34;
-  box-shadow: 0 0 1rem #cb4a34  ;
+  box-shadow: 0 0 1rem #cb4a34;
 }
 
-.valores{
+.valores {
   display: flex;
   flex-direction: row;
   margin: 2% 0 2% 0;
 }
 
-.valores input{
+.valores input {
   width: 30%;
   margin: 0 0 0 5%;
   background-color: #270000;
@@ -105,20 +118,19 @@ button:hover{
   font-size: 1.2rem;
 }
 
-#menuLateral{
+#menuLateral {
   display: flex;
   flex-direction: column;
   width: 15%;
   margin: 1% 1% 0 1%;
 }
 
-#render{
+#render {
   margin: 1% 0 0 0;
 }
 
-#save{
+#save {
   width: auto;
   margin: 1% 1% 1% 1%;
   padding: 0.3%;
 }
-

@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  margin: 2% auto 2% auto;
+  margin: 2% auto 2% 0;
   width: auto;
   font-size: 2.5rem;
   color: #910A67;
@@ -133,4 +133,103 @@ button:hover {
   width: auto;
   margin: 1% 1% 1% 1%;
   padding: 0.3%;
+}
+
+#logo{
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto 0 auto;
+  align-items: center;
+}
+
+#menuToggle{
+  display: none;
+}
+
+@media (max-width: 600px) {
+  html, body{
+    overflow-x: hidden;
+  }
+
+  nav{
+    background-color: #121330;
+    padding: 2% 2% 2% 2%;
+    width: 100%;
+  }
+
+  nav input{
+    padding: 1%;
+    width: 50%;
+  }
+  
+  
+  section{
+    display: block;
+    width: 100%;
+  }
+  
+  button{
+    margin: 0 1% 2% 1%;
+    padding: 2%;
+  }
+
+  canvas{
+    max-width: 100%;
+
+  }
+  
+  .valores{
+    display: block;
+    width: 50%;
+    margin: 0 2% 0 5%;
+  }
+  
+  .valores input{
+    width: 100%;
+  }
+  
+  #save{
+    padding: 1%;
+  }
+  
+  #mods, #resize{
+    display: flex;
+    flex-direction: row;
+    margin: auto 2% auto 0;
+  }
+
+  #resize{
+    margin: auto 25% auto 15%;
+  }
+
+  #menuToggle{
+    display: block;
+    color: white;
+    width: 100%;
+    margin: 2% 2% 2% 2%;
+    text-align: center;
+  }
+
+  #menuLateral{
+    display:flex;
+    flex-direction: row;
+    overflow: scroll;
+    width: 100%;
+    align-items: center;
+    font-size: 1rem;
+    background-color: #121330;
+    margin: 0;
+    display: none;
+  }
+
+  #x, #y{
+    width: 50px;
+  }
+  #x input, #y input{
+    width: 100%;
+  }
+
+  #resizeBtn{
+    margin: 0 5% 0 -15%;
+  }
 }

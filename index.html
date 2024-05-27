@@ -11,9 +11,14 @@
 
 <body>
   <header>
-    <h1>FotoForge</h1>
-    <img src="anvil.png">
+    <div id="logo">
+      <img src="anvil.png">
+      <h1>FotoForge</h1>
+    </div>
   </header>
+  <div class="menuToggle" id="menuToggle">
+    ☰ Menu
+  </div>
   <nav>
     <input class="customFileUpload" type="file" id="upload">
     <button id="save">Salvar Imagem</button>
@@ -51,8 +56,8 @@
           <label for="y">Y:</label>
           <input name="y" id="y" type="number">
         </div>
-        <button id="resizeBtn">Redimensionar</button>
       </div>
+      <button id="resizeBtn">Redimensionar</button>
     </div>
     <div id="render">
       <canvas id="canvas"></canvas>

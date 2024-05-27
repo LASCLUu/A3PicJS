@@ -1,6 +1,21 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('menuLateral');
+
+    menuToggle.addEventListener('click', function() {
+        if (navList.style.display === 'flex') {
+            navList.style.display = 'none';
+        } else {
+            navList.style.display = 'flex';
+        }
+    });
+});
+
+
 const upload = document.getElementById('upload');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
 
 upload.addEventListener('change', (event) => {
     const file = event.target.files[0];
